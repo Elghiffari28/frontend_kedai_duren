@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-list {
+  @apply block py-2 px-3 font-semibold text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white hover:text-third;
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-black;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45 origin-top-left;
+}
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45 origin-bottom-left;
+}
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.navbar-fixed {
+  @apply fixed z-[9999] bg-primary bg-opacity-50 shadow-nav;
+  backdrop-filter: blur(5px);
+}
