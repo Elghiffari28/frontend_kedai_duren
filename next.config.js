@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "placehold.co"],
-    // remotePatterns: [
-    //   {
-    //     hostname: ["localhost", "placehold.co"],
-    //   },
-    // ],
+    // domains: "placehold.co",
+    remotePatterns: [
+      {
+        hostname: "localhost",
+      },
+      {
+        hostname: "placehold.co",
+      },
+    ],
   },
 };
 

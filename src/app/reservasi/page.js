@@ -1,11 +1,11 @@
 "use client";
-import MejaList from "@/components/MejaList";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import StarRating from "@/components/Penilaian";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import handleSubmit from "@/components/handleSubmit";
+import useFetchData from "@/components/fetchDataMeja";
 
 const page = () => {
   const [formData, setFormData] = useState({});
@@ -34,63 +34,17 @@ const page = () => {
       console.error("Terjadi kesalahan:", error);
     }
   };
-  const handleSubmit = async (e) => {
+
+  const onSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3001/proses_pemesanan", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      console.log(response);
-      console.log(response.data); //Menampilkan pesan dari server
-      toast.success("Pemesanan Berhasil");
-      //Lakukan sesuatu setelah mengirim data
-      // router.push("/");
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    handleSubmit(formData, router, toast);
   };
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api_meja`
-        );
-        const mejaData = await response.json();
-        const mejasFromApi = mejaData.payload.data;
-        console.log(mejasFromApi);
-        setMejas(mejasFromApi); // Simpan data meja ke dalam state
-      } catch (error) {
-        console.error("Error fetching meja:", error);
-      }
-    };
-
-    fetchData(); // Panggil fungsi untuk mengambil data meja saat komponen dimuat
-  }, []);
-  // const listMeja = async (m) => {
-  //   try {
-  //     const response = await fetch(
-  //       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api_meja`
-  //     );
-  //     const meja = await response.json();
-  //     const mejas = meja.payload.data;
-  //     return m(mejas);
-  //   } catch (error) {
-  //     console.log("Error Anjing");
-  //   }
-  // };
-
-  // listMeja((m) => {
-  //   return;
-  // });
+  useFetchData(setMejas);
 
   return (
     <div className="mt-16 min-h-screen">
@@ -100,7 +54,7 @@ const page = () => {
           Reservasi Kedai Rumah Duren
         </h1>
       </div>
-      <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
+      <form className="max-w-lg mx-auto" onSubmit={onSubmit}>
         <div className="mb-5">
           <label
             htmlFor="nama"
@@ -196,10 +150,13 @@ const page = () => {
             </label>
             <select name="id_meja" id="id_meja" onChange={handleInputChange}>
               <option value="">---</option>
-              {mejas.map((data) => (
-                // <MejaList nilai={data.no_meja} key={data.no_meja} />
-                <option value={data.no_meja}>{data.no_meja}</option>
-              ))}
+              {mejas.map((data) => {
+                return (
+                  <option key={data.no_meja} value={data.no_meja}>
+                    {data.no_meja}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <p className="text-gray-600 text-xs italic">

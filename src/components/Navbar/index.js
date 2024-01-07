@@ -5,7 +5,9 @@ import { useEffect, useRef, useState } from "react";
 // import InputSearch from "./inputSearch";
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   const headerRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +33,19 @@ const Navbar = () => {
   }, [headerRef]);
 
   const handleButtonClick = () => {
+    if (isActive) {
+      navRef.current.classList.add("hidden");
+    } else {
+      navRef.current.classList.remove("hidden");
+    }
     setIsActive(!isActive);
   };
+
+  // const handleNavClick = () => {
+  //   if (navRef && navRef.current) {
+  //     // setNavHidden(!navHidden);
+  //   }
+  // };
 
   return (
     <header
@@ -50,7 +63,7 @@ const Navbar = () => {
               />
               <a
                 href="/"
-                className="font-bold text-lg lg:text-2xl text-third block py-6"
+                className="font-bold text-lg lg:text-2xl text-secondary block py-6"
               >
                 Kedai Rumah Duren
               </a>
@@ -61,7 +74,7 @@ const Navbar = () => {
               id="hamburger"
               name="hamburger"
               type="button"
-              className={`block absolute right-4 ${
+              className={`block absolute right-4 lg:hidden ${
                 isActive ? "hamburger-active" : ""
               }`}
               onClick={handleButtonClick}
@@ -70,6 +83,46 @@ const Navbar = () => {
               <span className="hamburger-line transition duration-300 ease-in-out"></span>
               <span className="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
             </button>
+            <nav
+              id="nav-menu"
+              className="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full md:max-w-[350px] lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none  "
+              ref={navRef}
+            >
+              <ul className="block lg:flex">
+                <li className="group">
+                  <a
+                    href="/"
+                    className="text-base text-black py-2 mx-8 flex group-hover:text-primary lg:group-hover:text-secondary"
+                  >
+                    Beranda
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="/menu"
+                    className="text-base text-black py-2 mx-8 flex group-hover:text-primary lg:group-hover:text-secondary"
+                  >
+                    Menu
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="/reservasi"
+                    className="text-base text-black py-2 mx-8 flex group-hover:text-primary lg:group-hover:text-secondary"
+                  >
+                    Reservasi
+                  </a>
+                </li>
+                <li className="group">
+                  <a
+                    href="/about"
+                    className="text-base text-black py-2 mx-8 flex group-hover:text-primary lg:group-hover:text-secondary"
+                  >
+                    Tentang Kami
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

@@ -13,7 +13,9 @@ const Page = () => {
                 Kedai Rumah Duren
               </h1>
               <p className="text-lg font-normal text-gray-200 lg:text-gray-800 lg:text-xl sm:px-16 lg:px-48">
-                Restoran dengan olahan durian terbaik cenahmah
+                Satu-satunya Cafe & Resto di kota Angin Majalengka yg memiliki
+                konsep branch menu aneka durian olahan, aneka makanan dan aneka
+                minuman.
               </p>
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
@@ -89,19 +91,17 @@ const Page = () => {
         </div>
       </section>
       <section className="bg-gray-100">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus vitae
-          distinctio quas totam officiis obcaecati debitis assumenda, deleniti
-          eum doloribus nihil tempore ab cum similique. Dolorum delectus sed
-          eos, rerum eaque rem praesentium, earum modi dolores quod nemo
-          aspernatur quisquam illo. Non quod, sapiente nisi soluta et fugiat
-          nesciunt nam doloremque itaque accusamus, officia aliquam placeat
-          voluptates provident optio nemo reprehenderit? Ducimus possimus qui
-          facere enim iusto reprehenderit. Velit odio exercitationem, minima a
-          voluptates officia dolorum aliquid, cum illum porro non totam
-          necessitatibus quasi id molestiae fugiat. Officia quaerat nulla sit
-          aliquam vel nesciunt, iure recusandae soluta, vero blanditiis fugit?
-        </p>
+        <h2 className="text-center font-semibold text-2xl">Routing</h2>
+        <div className="flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.228994738724!2d108.24915567577858!3d-6.741898193254407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f27f7a96bfe3f%3A0x15406897479a8aa2!2sKedai%20Rumah%20Duren!5e0!3m2!1sen!2sid!4v1704608804673!5m2!1sen!2sid"
+            width="800"
+            height="400"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </section>
     </div>
   );
