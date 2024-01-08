@@ -1,3 +1,5 @@
+import GetDate from "../getDate";
+
 const Footer = () => {
   return (
     <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
@@ -22,13 +24,19 @@ const Footer = () => {
           {/* Alamat Section */}
           <div>
             <h6 className="text-2xl font-bold mb-5">Alamat</h6>
-            <p>burujul wetan blasjakkjansa sasjas alsans aslajsans askan</p>
+            <p>
+              Jl. Raya Cirebon - Bandung No.55, Burujul Wetan, Kec. Jatiwangi,
+              Kabupaten Majalengka, Jawa Barat 45454
+            </p>
+            <div className="py-2 mt-3 mx-auto md:mx-0 bg-primary max-w-[150px] rounded-lg shadow-lg flex justify-center items-center">
+              <a href="https://www.google.com/maps/dir//Jl.+Raya+Cirebon+-+Bandung+No.55,+Burujul+Wetan,+Kec.+Jatiwangi,+Kabupaten+Majalengka,+Jawa+Barat+45454/@0,0,22z/data=!4m6!4m5!1m0!1m2!1m1!1s0x2e6f27f7a96bfe3f:0x15406897479a8aa2!3e0?gl=id">
+                Direction
+              </a>
+            </div>
           </div>
           {/* Contact Section */}
           <div>
-            <h6 className="text-2xl font-bold mb-5 flex justify-center">
-              Contact
-            </h6>
+            <h6 className="text-2xl font-bold mb-5">Contact</h6>
             <a href="/wa" className="flex items-center mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,15 +78,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
-          <span>© 2023 Copyright: </span>
-          <a
-            className="font-semibold text-neutral-600 dark:text-neutral-400"
-            href="/"
-          >
-            Elba Ghiffari Fitrasina
-          </a>
-        </div>
+        <GetDate />
       </div>
     </footer>
   );

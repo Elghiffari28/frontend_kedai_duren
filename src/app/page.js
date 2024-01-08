@@ -57,17 +57,20 @@ const Page = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <Image
-              src="https://placehold.co/600x400/png"
+              src="/carousel/car1.jpg"
+              alt="placeholder"
               width={600}
               height={400}
             ></Image>
             <Image
-              src="https://placehold.co/600x400/png"
+              src="/carousel/car2.jpg"
+              alt="placeholder"
               width={600}
               height={400}
             ></Image>
             <Image
-              src="https://placehold.co/600x400/png"
+              src="/carousel/car3.jpg"
+              alt="placeholder"
               width={600}
               height={400}
             ></Image>
@@ -77,7 +80,12 @@ const Page = () => {
           <h2 className="font-semibold text-2xl text-center">Durian Cake</h2>
           <div className="flex flex-col lg:flex-row">
             <div className="basis-3/4">
-              <Image src="/mkn.png" width={500} height={500}></Image>
+              <Image
+                src="/mkn.png"
+                alt="Makan"
+                width={500}
+                height={500}
+              ></Image>
             </div>
             <div className="flex justify-center items-center">
               <p className="text-justify">
@@ -90,13 +98,14 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gray-100">
-        <h2 className="text-center font-semibold text-2xl">Routing</h2>
-        <div className="flex justify-center">
+      <section className="bg-gray-100 mb-5">
+        <h2 className="text-center font-semibold text-2xl pt-5">Rute</h2>
+        <div className="flex justify-center mt-5">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.228994738724!2d108.24915567577858!3d-6.741898193254407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f27f7a96bfe3f%3A0x15406897479a8aa2!2sKedai%20Rumah%20Duren!5e0!3m2!1sen!2sid!4v1704608804673!5m2!1sen!2sid"
-            width="800"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.228994738724!2d108.24915567577858!3d-6.741898193254407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f27f7a96bfe3f%3A0x15406897479a8aa2!2sKedai%20Rumah%20Duren!5e0!3m2!1sen!2sid!4v1704742245925!5m2!1sen!2sid"
+            width="1080"
             height="400"
+            className="border-2"
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

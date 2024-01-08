@@ -12,27 +12,18 @@ const page = () => {
   const [mejas, setMejas] = useState([]);
   const [error, setError] = useState("");
   const router = useRouter("");
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [rating, setRating] = useState(null);
 
-  const handlePostRequest = async (data) => {
-    try {
-      const response = await fetch("/proses_pemesanan", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  const handleOrderPlacement = () => {
+    // Proses logika ketika pesanan selesai ditempatkan
+    setOrderPlaced(true); // Atur state orderPlaced menjadi true
+  };
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setError(errorData.error); // Set pesan error ke state
-        return;
-      }
-
-      // Lakukan sesuatu jika respons berhasil
-    } catch (error) {
-      console.error("Terjadi kesalahan:", error);
-    }
+  const handleRatingChange = (value) => {
+    // Logika untuk menangani perubahan rating
+    console.log("Rating changed to:", value);
+    setRating(value);
   };
 
   const onSubmit = (e) => {
@@ -47,7 +38,7 @@ const page = () => {
   useFetchData(setMejas);
 
   return (
-    <div className="mt-16 min-h-screen">
+    <div className="mt-16 min-h-screen relative">
       {error && <p style={{ color: "red" }}>{error}</p>}
       <div className="mb-5 p-5">
         <h1 className="text-2xl font-semibold text-center">
@@ -163,14 +154,33 @@ const page = () => {
             Keterangan: I = Indoor O = Outdoor L = Lesehan P = Parkiran
           </p>
         </div>
+        <div className="mb-5">
+          <label
+            htmlFor="catatan"
+            className="block mb-2 text-sm font-medium text-gray-900 "
+          >
+            Catatan
+          </label>
+          <input
+            type="text"
+            id="catatan"
+            name="catatan"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Catatan Untuk Admin"
+            onChange={handleInputChange}
+          />
+        </div>
         <button
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm mt-5 px-5 py-2.5 text-center "
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm mt-5 px-5 py-2.5 text-center"
+          onClick={handleOrderPlacement}
         >
           Pesan Sekarang
         </button>
       </form>
-      <StarRating />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        {orderPlaced && <StarRating handleRatingChange={handleRatingChange} />}
+      </div>
     </div>
   );
 };

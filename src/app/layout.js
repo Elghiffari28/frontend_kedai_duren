@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -21,6 +22,7 @@ const RootLayout = ({ children }) => {
       <body className={`${poppins.className} bg-bg`}>
         <Navbar />
         {children}
+        <ToastContainer />
         <DynamicComponent />
         <Footer />
       </body>
