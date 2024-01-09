@@ -15,7 +15,9 @@ const handleSubmit = async (formData, router) => {
       position: toast.POSITION.TOP_CENTER,
     });
     // Lakukan sesuatu setelah mengirim data
-    router.push("/");
+    setTimeout(() => {
+      router.push("/");
+    }, 5000);
   } catch (error) {
     toast.error("Pemesanan Terkirim!", {
       position: toast.POSITION.TOP_CENTER,

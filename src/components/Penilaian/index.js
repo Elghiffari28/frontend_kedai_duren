@@ -25,18 +25,22 @@ const submitRatingToServer = async (ratingValue) => {
 
 const StarRating = () => {
   const [rating, setRating] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleRatingChange = (value) => {
     setRating(value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, router) => {
     event.preventDefault();
-    // Lakukan sesuatu dengan nilai penilaian, seperti mengirimkan ulasan dan rating ke server
     console.log("Rating:", rating);
     submitRatingToServer(rating);
-    // ... kode untuk mengirim data ke server atau melakukan tindakan lainnya
+    setSubmitted(true);
   };
+
+  if (submitted) {
+    return null; // Jika form sudah di-submit, tampilkan null (tidak ada yang ditampilkan)
+  }
 
   return (
     <div className="bg-white border-2 rounded-lg shadow-lg p-4 w-72">

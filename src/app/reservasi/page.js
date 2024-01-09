@@ -24,6 +24,7 @@ const page = () => {
     // Logika untuk menangani perubahan rating
     console.log("Rating changed to:", value);
     setRating(value);
+    // handleSubmit(router);
   };
 
   const onSubmit = (e) => {

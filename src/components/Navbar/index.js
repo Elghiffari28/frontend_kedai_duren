@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { document } from "postcss";
 import { useEffect, useRef, useState } from "react";
 // import InputSearch from "./inputSearch";
 const Navbar = () => {
@@ -127,34 +125,6 @@ const Navbar = () => {
         </div>
       </div>
     </header>
-    // <header className="bg-primary shadow-lg">
-    //   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 h-20">
-    //     <Link
-    //       href="/"
-    //       className="flex items-center space-x-3 rtl:space-x-reverse"
-    //     >
-    //       <img src="/logo.jpg" className="h-6 md:h-8" alt="Kedai Duren Logo" />
-    //       <span className="self-center text-lg md:text-2xl font-semibold whitespace-nowrap text-bg font-custom">
-    //         Kedai Rumah Duren
-    //       </span>
-    //     </Link>
-    //     <div className="flex gap-3 text-base font-thin">
-    //       <Link href="/" className="nav-list">
-    //         Beranda
-    //       </Link>
-    //       <Link href="/menu" className="nav-list">
-    //         Menu
-    //       </Link>
-    //       <Link href="/reservasi" className="nav-list">
-    //         Reservasi
-    //       </Link>
-    //       <Link href="/about" className="nav-list">
-    //         Tentang Kami
-    //       </Link>
-    //     </div>
-    //     {/* <InputSearch /> */}
-    //   </div>
-    // </header>
   );
 };
 
