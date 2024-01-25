@@ -111,14 +111,14 @@ const Navbar = () => {
                     Reservasi
                   </a>
                 </li>
-                <li className="group">
+                {/* <li className="group">
                   <a
                     href="/about"
                     className="text-base text-black py-2 mx-8 flex group-hover:text-primary lg:group-hover:text-secondary"
                   >
                     Tentang Kami
                   </a>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>

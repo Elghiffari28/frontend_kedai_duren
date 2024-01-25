@@ -19,7 +19,7 @@ const handleSubmit = async (formData, router) => {
       router.push("/");
     }, 5000);
   } catch (error) {
-    toast.error("Pemesanan Terkirim!", {
+    toast.error("Meja di tanggal dan jam yang dipesan sudah terpesan", {
       position: toast.POSITION.TOP_CENTER,
     });
     console.error("Error:", error);
